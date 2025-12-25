@@ -1,14 +1,68 @@
+@import 'tailwindcss';
+
 :root {
 	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 	color-scheme: dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #000000;
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	/* Основные цвета */
+	--background: #2d3134;
+	--foreground: #ffffff;
+	--light-gray: #b3b3b3;
+	--gray: #3d4348;
+	--dark-gray: #252829;
+	--muted: #32373a;
+
+	/* Градиенты фона */
+	--gradient-dark-start: #2d3134;
+	--gradient-dark-middle: #252829;
+
+	/* Primary цвета */
+	--primary: #1cbecb;
+	--primary-light: #40a9ff;
+	--primary-lighter: #69c0ff;
+
+	/* Цвета состояний */
+	--status-critical: #ff4d4f;
+	--status-warning: #fa8c16;
+	--status-medium: #faad14;
+	--status-success: #52c41a;
+
+	/* Цвета эффектов */
+	--effect-positive: #4ade80;
+	--effect-negative: #f87171;
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-light-gray: var(--light-gray);
+	--color-gray: var(--gray);
+	--color-dark-gray: var(--dark-gray);
+	--color-muted: var(--muted);
+
+	--color-gradient-dark-start: var(--gradient-dark-start);
+	--color-gradient-dark-middle: var(--gradient-dark-middle);
+
+	--color-primary: var(--primary);
+	--color-primary-light: var(--primary-light);
+	--color-primary-lighter: var(--primary-lighter);
+
+	--color-status-critical: var(--status-critical);
+	--color-status-warning: var(--status-warning);
+	--color-status-medium: var(--status-medium);
+	--color-status-success: var(--status-success);
+
+	--color-effect-positive: var(--effect-positive);
+	--color-effect-negative: var(--effect-negative);
+
+	--shadow-elevated: 0 12px 30px rgba(0, 0, 0, 0.5);
+	--shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 *,
@@ -21,31 +75,11 @@ body {
 	margin: 0;
 	min-width: 320px;
 	min-height: 100vh;
-	overflow: hidden;
+	background: var(--background);
+	color: var(--foreground);
 }
 
 #root {
 	width: 100vw;
-	height: 100vh;
-}
-
-button {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
-	background-color: #1a1a1a;
-	cursor: pointer;
-	transition: border-color 0.25s;
-}
-
-button:hover {
-	border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
+	min-height: 100vh;
 }

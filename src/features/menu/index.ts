@@ -1,1 +1,1 @@
-export * from './components'
+export { MainMenu } from './MainMenu'

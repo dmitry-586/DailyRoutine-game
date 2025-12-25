@@ -15,9 +15,9 @@ export const FACTOR_CONFIGS: Array<{ key: FactorKey; label: string }> = [
 ]
 
 export const getBarClassName = (value: number): string => {
-	if (value <= 20) return 'factor-bar factor-bar-critical'
-	if (value <= 40) return 'factor-bar factor-bar-low'
-	if (value <= 70) return 'factor-bar factor-bar-medium'
-	if (value <= 90) return 'factor-bar factor-bar-high'
-	return 'factor-bar factor-bar-max'
+	if (value <= 20) return 'factor-bar-critical'
+	if (value <= 40) return 'factor-bar-low'
+	if (value <= 70) return 'factor-bar-medium'
+	if (value <= 90) return 'factor-bar-high'
+	return 'factor-bar-max'
 }

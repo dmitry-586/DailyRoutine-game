@@ -3,7 +3,7 @@ import { useExcuses, useGameActions, useNpc } from '../hooks'
 import type { ExcuseType } from '../types'
 import { ExcuseButton } from './ExcuseButton'
 
-function ExcuseChoices() {
+export function ExcuseChoices() {
 	const excuses = useExcuses()
 	const { chooseExcuse } = useGameActions()
 	const npc = useNpc()
@@ -11,14 +11,14 @@ function ExcuseChoices() {
 
 	if (excuses.length === 0) {
 		return (
-			<div className='excuse-choices excuse-choices-empty'>
+			<div className='flex gap-3.5 relative flex-nowrap w-full max-md:gap-2'>
 				<p>Здесь появятся варианты отмазок.</p>
 			</div>
 		)
 	}
 
 	return (
-		<div className='excuse-choices'>
+		<div className='flex gap-3.5 relative flex-nowrap w-full max-md:gap-2'>
 			{excuses.map(excuse => (
 				<ExcuseButton
 					key={excuse.type}
@@ -32,5 +32,3 @@ function ExcuseChoices() {
 		</div>
 	)
 }
-
-export default ExcuseChoices

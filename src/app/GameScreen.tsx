@@ -3,7 +3,7 @@ import {
 	FactorsPanel,
 	HeroPanel,
 	NpcPanel,
-} from '../features/game'
+} from '../features/game/components'
 import { useGameStore } from '../features/game/model/store'
 import PhaserGame from '../services/phaser/phaser-game'
 import { getBackgroundUrl } from '../shared/lib'
