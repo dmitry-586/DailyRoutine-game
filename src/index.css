@@ -1,41 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
 
 :root {
-	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: Inter, sans-serif;
 	line-height: 1.5;
-	font-weight: 400;
 	color-scheme: dark;
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 
-	/* Основные цвета */
 	--background: #2d3134;
 	--foreground: #ffffff;
 	--light-gray: #b3b3b3;
 	--gray: #3d4348;
 	--dark-gray: #252829;
-	--muted: #32373a;
-
-	/* Градиенты фона */
-	--gradient-dark-start: #2d3134;
-	--gradient-dark-middle: #252829;
-
-	/* Primary цвета */
 	--primary: #1cbecb;
-	--primary-light: #40a9ff;
-	--primary-lighter: #69c0ff;
-
-	/* Цвета состояний */
-	--status-critical: #ff4d4f;
-	--status-warning: #fa8c16;
-	--status-medium: #faad14;
-	--status-success: #52c41a;
-
-	/* Цвета эффектов */
-	--effect-positive: #4ade80;
-	--effect-negative: #f87171;
+	--green: #22c55e;
 }
 
 @theme inline {
@@ -44,25 +21,8 @@
 	--color-light-gray: var(--light-gray);
 	--color-gray: var(--gray);
 	--color-dark-gray: var(--dark-gray);
-	--color-muted: var(--muted);
-
-	--color-gradient-dark-start: var(--gradient-dark-start);
-	--color-gradient-dark-middle: var(--gradient-dark-middle);
-
 	--color-primary: var(--primary);
-	--color-primary-light: var(--primary-light);
-	--color-primary-lighter: var(--primary-lighter);
-
-	--color-status-critical: var(--status-critical);
-	--color-status-warning: var(--status-warning);
-	--color-status-medium: var(--status-medium);
-	--color-status-success: var(--status-success);
-
-	--color-effect-positive: var(--effect-positive);
-	--color-effect-negative: var(--effect-negative);
-
-	--shadow-elevated: 0 12px 30px rgba(0, 0, 0, 0.5);
-	--shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+	--color-green: var(--green);
 }
 
 *,
@@ -71,15 +31,22 @@
 	box-sizing: border-box;
 }
 
+html,
 body {
 	margin: 0;
-	min-width: 320px;
-	min-height: 100vh;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
 	background: var(--background);
 	color: var(--foreground);
 }
 
 #root {
 	width: 100vw;
-	min-height: 100vh;
+	height: 100vh;
+	overflow: hidden;
 }
