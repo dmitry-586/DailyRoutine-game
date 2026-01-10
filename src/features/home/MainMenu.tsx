@@ -1,16 +1,11 @@
-import { useState } from 'react'
-import { GameScreen } from '../../app/GameScreen'
+export interface MainMenuProps {
+	onStart: () => void
+}
 
-export function MainMenu() {
-	const [isGameStarted, setIsGameStarted] = useState(false)
-
-	if (isGameStarted) {
-		return <GameScreen />
-	}
-
+export function MainMenu({ onStart }: MainMenuProps) {
 	return (
-		<main className='flex justify-center px-4 py-8'>
-			<div className='w-full max-w-5xl space-y-10'>
+		<div className='flex justify-center px-4 py-8'>
+			<div className='w-full space-y-10'>
 				<div className='text-center'>
 					<h1 className='text-4xl font-bold'>
 						Битва <span className='text-primary'>Кланов</span>
@@ -31,7 +26,7 @@ export function MainMenu() {
 				</div>
 
 				<button
-					onClick={() => setIsGameStarted(true)}
+					onClick={onStart}
 					className='flex items-center justify-center gap-3 rounded-lg bg-primary px-8 py-4 text-2xl font-medium transition-colors duration-200 hover:bg-primary/80 cursor-pointer mx-auto'
 				>
 					Начать игру
@@ -42,6 +37,6 @@ export function MainMenu() {
 					/>
 				</button>
 			</div>
-		</main>
+		</div>
 	)
 }

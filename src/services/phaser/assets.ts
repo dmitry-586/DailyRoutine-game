@@ -1,22 +1,22 @@
+import type Phaser from 'phaser'
+
 // Ключи текстур для NPC
 export const NPC_TEXTURE_KEYS: Record<string, string> = {
-	sensei: 'npc_sensei',
-	shogun: 'npc_shogun',
-	geisha: 'npc_geisha',
-	ronin: 'npc_ronin',
-	craftsman: 'npc_craftsman',
-	elder: 'npc_elder',
-	merchant: 'npc_merchant',
-	peasant: 'npc_peasant',
-	poet: 'npc_poet',
-	samurai: 'npc_samurai',
+	sensei: 'sensei',
+	shogun: 'shogun',
+	geisha: 'geisha',
+	ronin: 'ronin',
+	craftsman: 'craftsman',
+	elder: 'elder',
+	merchant: 'merchant',
+	peasant: 'peasant',
+	poet: 'poet',
+	samurai: 'samurai'
 }
 
-// Регистрация ассетов для Phaser
 export const registerGameAssets = (
 	loader: Phaser.Loader.LoaderPlugin
 ): void => {
-	// NPC карты
 	loader.image(NPC_TEXTURE_KEYS.sensei, '/assets/sensei/sensei.png')
 	loader.image(NPC_TEXTURE_KEYS.ronin, '/assets/ronin/ronin.png')
 	loader.image(NPC_TEXTURE_KEYS.shogun, '/assets/shogun/shogun.png')
