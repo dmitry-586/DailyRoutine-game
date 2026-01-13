@@ -3,28 +3,27 @@ import { PreloadScene } from '@/app/scenes/PreloadScene'
 import { AUTO, Game, Scale, type Types } from 'phaser'
 
 export const initGame = (parent: HTMLElement): Game => {
-	const dpr = window.devicePixelRatio || 1
-	const displayWidth = parent.clientWidth || 800
-	const displayHeight = parent.clientHeight || 600
+	const getDisplaySize = (): { width: number; height: number } => ({
+		width: parent.clientWidth || window.innerWidth,
+		height: parent.clientHeight || window.innerHeight
+	})
 
-	// Увеличиваем внутреннее разрешение для четкости на высоких DPI
-	const width = displayWidth * dpr
-	const height = displayHeight * dpr
+	const { width: displayWidth, height: displayHeight } = getDisplaySize()
 
 	const config: Types.Core.GameConfig = {
 		type: AUTO,
-		width,
-		height,
+		width: displayWidth,
+		height: displayHeight,
 		backgroundColor: '#2d3134',
 		parent,
 		scene: [PreloadScene, GameScene],
 		render: {
-			antialias: false,
-			pixelArt: true,
-			roundPixels: true
+			antialias: true,
+			pixelArt: false,
+			roundPixels: false
 		},
 		scale: {
-			mode: Scale.FIT,
+			mode: Scale.RESIZE,
 			autoCenter: Scale.CENTER_BOTH,
 			width: displayWidth,
 			height: displayHeight
@@ -35,11 +34,22 @@ export const initGame = (parent: HTMLElement): Game => {
 
 	const canvas = game.canvas
 	if (canvas) {
-		canvas.style.width = `${displayWidth}px`
-		canvas.style.height = `${displayHeight}px`
-		canvas.style.transform = `scale(${1 / dpr})`
-		canvas.style.transformOrigin = 'top left'
+		canvas.style.width = '100%'
+		canvas.style.height = '100%'
+		canvas.style.display = 'block'
 	}
+
+	const handleResize = () => {
+		const { width, height } = getDisplaySize()
+		game.scale.resize(width, height)
+	}
+
+	window.addEventListener('resize', handleResize)
+	window.addEventListener('orientationchange', handleResize)
+	game.events.once('destroy', () => {
+		window.removeEventListener('resize', handleResize)
+		window.removeEventListener('orientationchange', handleResize)
+	})
 
 	return game
 }
